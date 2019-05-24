@@ -1,0 +1,136 @@
+/*userinfo*/
+body{
+	background-size: cover;
+    background-repeat:no-repeat;
+}
+
+ul{
+	text-align:center;
+}
+li{
+	vertical-align: middle;
+}
+
+.divAbout{
+	margin-top: 10px;
+	background:white;
+	width: 160px;
+	height: 200px;
+	display: none;
+}
+
+.BtnAbout{
+	background:url(../pic/userinfo/dog.png) no-repeat center;
+	background-size:cover;
+}
+
+td /*设置表格文字左右和上下居中对齐*/ 
+{  
+    vertical-align: middle;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+.verticalLine{
+	border-left:1px solid #FFFFFF;
+	width:1px;
+	height:50px;
+}
+
+h5{
+	margin-top: 8px;
+}
+
+.modal{
+    top: 50%;
+    left: 50%;
+}
+
+#addAlbum .modal-body{
+	height: 200px;
+}
+
+/*aboutus*/
+#divAboutUs{
+	margin-top: 10px;
+	background:no-repeat center white;
+	border-radius: 10px;	//圆角的大小	
+	width: 160px;
+	height: 400px;
+	border-width: 10px;
+	border-color: #FFFFFF #FFFFFF #FFFFFF #FFFFFF;	//边框颜色，依次为上、右、下、左
+}
+
+.divAboutUsHead{
+	background:url(../pic/userinfo/aboutUsHead.png) no-repeat center;
+	background-size:100% ;
+	/*width: 160px;
+	height: 200px;*/
+	display: none;
+}
+
+/*圆角矩形*/
+.roundedRectangle{	
+	/*background: #9BD1FA;//背景色	*/
+	border-width: 1px;	/*边缘的宽度，如果要分别设置可以这样：border-width: 15px 5px 15px 5px;依次为上、右、下、左*/	
+	/*border-style: solid;	*/
+	border-radius: 10px;	//圆角的大小	
+}
+
+.pic-container{
+    float: left;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.picText-content,.picBtn-content{
+    float: left;
+}
+.picText-content input[type='text'],.picBtn-content .btn{
+    height: 30px;
+    font-size: 13px;
+}
+.picBtn-content .btn{
+    margin-top: 10px;
+}
+
+.tableDiv{
+	height:400px;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.btn-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+}
+
+.min{
+	width: 100px;
+	height:  70px;
+}
+
+.max{
+	/*占据屏幕中心*/
+	width:100%;
+	height:auto;
+}
+#tab tr td{
+	text-align: center;
+	vertical-align: middle;
+}
+
+#userinfoHead{
+	width: 160px;
+	height: 100px;
+	text-align: right;
+	vertical-align:top;
+}

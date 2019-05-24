@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>个人资料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<!-- cdn version
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+-->
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script type="text/javascript" src="/static/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body background="/static/pic/userinfo/userbg.png">
+<div class="container-fluid">
+	<div class="row">
+		<!-- 左侧导航栏 -->
+		<div class="col-2">
+			<br/><br/><br/><br/><br/>
+			<ul class="nav flex-column">
+ 					<li class="nav-item">
+    					<a class="nav-link btnUserInfo" href="javascript:;">
+						<img src="/static/pic/userinfo/avatar.png" class="rounded" />
+    					</a>
+ 					</li>
+ 					<li class="nav-item">
+					<p class="text-center text-white">个人资料</p>
+				</li>
+ 					<li class="nav-item">
+    					<a class="nav-link btnPPT" href="javascript:;">
+						<img src="/static/pic/userinfo/ppt.jpeg" class="rounded"/>
+    					</a>
+				</li>
+				<li class="nav-item">
+					<p class="text-center text-white">PPT管理</p>
+ 					</li>
+			</ul>
+		</div>
+		<div class="col-10">
+			<!-- 右侧上方导航栏 -->
+			<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+				<a class="navbar-brand" href="javascript:;"><p class="h3">相册</p></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!--竖线-->
+				<div class="verticalLine"></div>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link btnUserInfo" href="javascript:;">
+                            		<h4 class="text-white" id="navbarUsername"></h4>
+                            </a>
+                            <a class="nav-link btnLogout" href="javascript:;">
+                            		<h4 class="text-white">登出</h4>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btnUserInfo" href="javascript:;">
+                                <img class="rounded-circle" height="80" width="80" align="right" id="navbarHead"/>
+                            </a>
+                        </li>
+                    </ul>
+				</div>
+			</nav>
+			<br/>
+            <br/>
+            <!-- 主体 -->
+            <div class="row">
+                <div class="col-8 offset-2 card">
+                    <div class="card-header">
+                        <div class="row">
+                            <h3 class="col-5 display-4">基本信息</h3>
+                            <img class="rounded ml-auto" height="80" width="80" align="right" id="head"/>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="nickname" class="col-2 col-form-label">姓名</label>
+                                <div class="col-10">
+                                    <input type="text" readonly="readonly" class="form-control-plaintext"
+                                           id="nickname"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="sex" class="col-2 col-form-label">性别</label>
+                                <div class="col-10">
+                                    <input type="text" readonly="readonly" class="form-control-plaintext" id="sex"/>
+                                    <div class="form-check-inline sexRadio" style="display: none;">
+                                        <input class="form-check-input" type="radio" name="sex" value="0"
+                                               id="sexForMale"/>
+                                        <label class="form-check-label" for="sexForMan">男</label>
+                                    </div>
+                                    <div class="form-check-inline sexRadio" style="display: none;">
+                                        <input class="form-check-input" type="radio" name="sex" value="1"
+                                               id="sexForFemale"/>
+                                        <label class="form-check-label" for="sexForMan">女</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="birthday" class="col-2 col-form-label">生日</label>
+                                <div class="col-10">
+                                    <input type="text" readonly="readonly" class="form-control-plaintext"
+                                           id="birthday"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-2 col-form-label">手机号</label>
+                                <div class="col-10">
+                                    <input type="number" readonly="readonly" class="form-control-plaintext" id="phone"/>
+                                </div>
+                            </div>
+                            <div class="form-group row" style="display: none;">
+                                <label class="col-2 col-form-label" for="authcode">验证码</label>
+                                <div class="col-10 input-group">
+                                    <input type="number" class="form-control col-9" id="authcode">
+                                    <button type="button" class="btn btn-primary form-control col-3 btnSendCode">
+                                        <span class="glyphicon glyphicon-earphone">获取手机验证码</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary form-control col-3 btnWait"
+                                            style="display: none;" disabled="disabled">
+                                        <span class="glyphicon glyphicon-earphone" id="lefttime">60</span>
+                                        秒后重新发送
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-2 col-form-label">邮箱</label>
+                                <div class="col-10">
+                                    <input type="email" readonly="readonly" class="form-control-plaintext" id="email"/>
+                                </div>
+                            </div>
+                            <hr/>
+                            <h4>详细资料</h4>
+                            <div class="form-group row">
+                                <label for="company" class="col-2 col-form-label">单位</label>
+                                <div class="col-10">
+                                    <input type="text" readonly="readonly" class="form-control-plaintext" id="company"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="title" class="col-2 col-form-label">职称</label>
+                                <div class="col-10">
+                                    <input type="text" readonly="readonly" class="form-control-plaintext" id="title"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="industry" class="col-2 col-form-label">行业</label>
+                                <div class="col-10">
+                                    <input type="text" readonly="readonly" class="form-control-plaintext"
+                                           id="industry"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-2 ml-auto">
+                                <button type="button" class="btn btn-default btnUpdate">
+                                    <span class="glyphicon glyphicon-pencil">编辑</span>
+                                </button>
+                                <button type="button" class="btn btn-default btnSave" style="display: none;">
+                                    <span class="glyphicon glyphicon-pencil">保存</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div> <!-- end container-fluid -->
+<script type="text/javascript" src="/static/js/util.js"></script>
+<script type="text/javascript" src="/static/js/userinfo.js"></script>
+</body>
+</html>

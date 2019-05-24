@@ -1,0 +1,31 @@
+outNetIp:
+  39.108.106.167
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:123@${outNetIp}:27017/admin
+  application:
+    name: user-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${outNetIp}:3306/ronghui?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    username: root
+    password: 123
+    filters: wall,mergeStat
+    data-source-name: ronghuidb
+  session:
+    store-type: none
+  redis:
+    port: 6379
+    host: ${outNetIp}
+server:
+  port: 9999
+#多数据源情况的配置
+#guns:
+#  muti-datasource:
+#    open: false
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/guns_test_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+#    username: root
+#    password: root
+#    data-source-name: otherdb

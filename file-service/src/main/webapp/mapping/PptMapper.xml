@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wdy.module.modular.system.mapper.PptMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wdy.module.modular.system.entity.Ppt">
+        <id column="pptid" property="pptid"/>
+        <result column="cover" property="cover"/>
+        <result column="datetime" property="datetime"/>
+        <result column="file_id" property="fileId"/>
+        <result column="name" property="name"/>
+        <result column="uid" property="uid"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        pptid, cover, datetime, file_id AS fileId, name, uid
+    </sql>
+    <!--<select id="findById" parameterType="long" resultType="com.wdy.module.modular.system.entity.TUser">-->
+    <!--select * from t_user where uid = #{uid}-->
+    <!--</select>-->
+</mapper>

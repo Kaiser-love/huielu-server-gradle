@@ -1,0 +1,55 @@
+def copyFramework() {
+    def newTaskName = "copyFramework"
+    task(newTaskName) {
+        doLast {
+            //拷贝主程序
+            copy {
+                from "$buildDir/libs/"
+                into "$rootDir/bin/$server_name"
+                include("**/*.jar")
+                rename {
+                    "${server_name}.jar"
+                }
+            }
+            copy {
+                from "$projectDir/"
+                into "$rootDir/bin/$server_name/"
+                include("Dockerfile")
+            }
+            copy {
+                from "$rootDir/"
+                into "$rootDir/bin/"
+                include("run.sh")
+            }
+        }
+    }
+    def newTask = tasks.findByName(newTaskName)
+    def buildTask = tasks.findByName("build")
+    newTask.dependsOn(buildTask.taskDependencies.getDependencies(buildTask))
+    buildTask.dependsOn(newTask)
+}
+
+def createServerConfig() {
+    def newTaskName = "createConfig"
+    task(newTaskName) {
+        doLast {
+            //拷贝主程序
+            File file = new File("$rootDir/bin/$server_name/config")
+            file.write("${server_name}\n")
+            file.append("${server_port}\n")
+            file.append("$version")
+        }
+    }
+    def newTask = tasks.findByName(newTaskName)
+    def buildTask = tasks.findByName("build")
+    newTask.dependsOn(buildTask.taskDependencies.getDependencies(buildTask))
+    buildTask.dependsOn(newTask)
+
+
+}
+
+
+afterEvaluate {
+    copyFramework()
+    createServerConfig()
+}

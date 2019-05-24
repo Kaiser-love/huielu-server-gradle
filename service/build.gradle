@@ -1,0 +1,81 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'io.franzbecker.gradle-lombok'
+apply from: "$rootDir/script/copy_framework.gradle"
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    server_name = "user-server"
+    server_port = 9999
+
+    springCloudVersion = 'Finchley.SR1'
+}
+
+
+dependencies {
+//    implementation('org.springframework.boot:spring-boot-starter-jersey')
+//    implementation('org.springframework.cloud:spring-cloud-starter-consul-discovery')
+//    implementation('org.springframework.cloud:spring-cloud-starter-consul-config')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('io.springfox:springfox-swagger2:2.9.2')
+    implementation('io.springfox:springfox-swagger-ui:2.9.2')
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation('org.springframework.boot:spring-boot-starter-batch')
+    implementation('org.springframework.boot:spring-boot-starter-cache')
+    implementation('org.springframework.boot:spring-boot-starter-mail')
+    implementation('org.springframework.boot:spring-boot-starter-data-redis')
+//    compile('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.boot:spring-boot-starter-validation')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-web-services')
+    implementation('org.springframework.boot:spring-boot-starter-websocket')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.retry:spring-retry')
+    implementation('org.springframework.session:spring-session-core')
+    implementation('org.springframework.session:spring-session-data-redis')
+    runtime('org.springframework.boot:spring-boot-devtools')
+    implementation('org.hibernate:hibernate-core:5.3.5.Final')
+    implementation 'com.alibaba:druid-spring-boot-starter:1.1.10'
+    runtime('mysql:mysql-connector-java:6.0.5')
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+    compileOnly('org.projectlombok:lombok')
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.51'
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.batch:spring-batch-test')
+//    testCompile('org.springframework.security:spring-security-test')
+    compile project(':libs:network')
+
+    implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+
+    //poi
+    implementation group: 'org.apache.poi', name: 'poi', version: '4.0.0'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.0'
+    implementation group: 'org.apache.poi', name: 'poi-scratchpad', version: '4.0.0'
+    
+    implementation("org.mongodb:mongo-java-driver:3.8.2")
+
+//    阿里云短信借口依赖
+    implementation("com.aliyun:aliyun-java-sdk-core:4.0.6")
+    implementation("com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0")
+
+
+}
+
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//    }
+//}
+
+
+
